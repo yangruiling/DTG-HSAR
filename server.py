@@ -21,7 +21,7 @@ class process:        #与url映射同名，url处理的类
         x = web.input(video_file={})
         if 'video_file' in x:    #若文件存在
             # save image  保存用户上传的图片
-            filedir = '/home/yangruiling/mmskeleton/resource/data_example_web'
+            filedir = './resource/data_example_web'
             filepath=x.video_file.filename.replace('\\','/')
             filename=filepath.split('/')[-1]
             fout = open(filedir +'/'+ filename,'wb')
@@ -31,25 +31,22 @@ class process:        #与url映射同名，url处理的类
             #为视频制作导航文件(json)
             catrgory = {"categories": [filename],"annotations": {filename: {"category_id": 0}}}
             catrgory_json = json.dumps(catrgory)
-            f2 = open('/home/yangruiling/mmskeleton/resource/category_annotation_example_web.json', 'w')
+            f2 = open('./resource/category_annotation_example_web.json', 'w')
             f2.write(catrgory_json)
             f2.close()
 
             #调用ST-GCN进行动作识别，并输出动作类别
             #os.system("python mmskl.py /home/yangruiling/mmskeleton/configs/utils/build_dataset_example_web.yaml")
-            os.system("python mmskl.py /home/yangruiling/mmskeleton/configs/recognition/st_gcn/dataset_example/test_web.yaml")
-
-
-
+            os.system("python mmskl.py ./configs/recognition/st_gcn/dataset_example/test_web.yaml")
 
 
         # pred image   调用推理模块进行推理
         #调用recognition-test
         print("ST_GCN:")
-        #os.system("python mmskl.py /home/yangruiling/mmskeleton/configs/recognition/st_gcn_aaai18/ntu-rgbd-xsub/test.yaml")
+        os.system("python mmskl.py /home/yangruiling/mmskeleton/configs/recognition/st_gcn_aaai18/ntu-rgbd-xsub/test.yaml")
         print("lifelong:")
         #调用longlife-test
-        #os.system("python /home/yangruiling/mmskeleton/mmskeleton/fewrel/test_lifelong_model.py")
+        os.system("python /home/yangruiling/mmskeleton/mmskeleton/fewrel/test_lifelong_model.py")
         
         #获取输出数据
         f = open('/home/yangruiling/mmskeleton/static/draw_data/ST_GCN1.txt')

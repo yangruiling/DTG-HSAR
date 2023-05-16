@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+    <link href="/static/css/main.css" rel="stylesheet"  type="text/css"/>
+    <title>remote deep learning</title>
+</head>
+
+<body>
+    <div id="div_global">    
+        <!-- 标题部分 --> 
+        <div id="div_context">
+            <p>选择图片，上传检测</p>
+        </div>
+        <!-- 结果展示部分:分类展示模式,上半部分是检测的图片,下半部分是检测出的top3的类别。-->
+        <div id="div_image">
+            <img name="showimg" id="img_image" src="/static/img/welcom.jpg"  alt="dog" />
+        </div>
+        <!-- 按钮部分 -->   
+        <!-- 第一个按钮用于选择图片,点击之后可以从本地选择一张图片。 -->
+        <!-- 检测按钮点击之后,可以将刚才选择的图片上传到服务器,服务器进行深度学习检测,然后将结果返回当当前页面。返回的结果显示在结果展示”区 -->
+        <div id="div_operation">
+            <form id="fm_upload" method="POST" enctype="multipart/form-data" action="">
+                <input name="image_file" type="file" id="i_file" onchange="fileChoose();" />
+                <input name="detect_file" type="submit" id="i_sub" value="检测">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

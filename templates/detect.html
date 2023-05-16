@@ -1,0 +1,29 @@
+$def with(img1,img2,text)
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+    <link href="/static/css/main.css" rel="stylesheet"  type="text/css"/>
+    <title>remote deep learning</title>
+</head>
+<body>
+    <div id="div_global">
+        <div id="div_context">
+            <p>"$text"</p>
+        </div>
+        
+        <div id="div_image">
+            <img name="showimg" id="img_image" src="$img1"  alt="result_img" />
+            <img name="showimg" id="img_image" src="$img2"  alt="result_img" />
+        </div>
+            
+        <div id="div_operation">
+            <form id="fm_upload" method="POST" enctype="multipart/form-data" action="">
+                <input name="video_file" type="file" id="i_file" onchange="fileChoose();" />
+                <input name="detect_file" type="submit" id="i_sub" value="ST-GCN—test">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
